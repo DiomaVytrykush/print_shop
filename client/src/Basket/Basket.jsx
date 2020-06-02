@@ -69,7 +69,6 @@ class Basket extends React.Component {
         return (
             <div onSubmit={this.handleSubmit}>
                 <div className="basket__wrapper" >
-                    <p>{this.state.response}</p>
                     <div className="basket">Корзина</div>
                     <form>
                         {
@@ -179,7 +178,6 @@ class Basket extends React.Component {
                         <button className="buyer__submit" type="submit">Оформити заказ</button>
                     </form>
                 </div >
-                <p>{this.state.responseToPost}</p>
             </div>
         );
     }
