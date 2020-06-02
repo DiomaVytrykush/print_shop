@@ -1,0 +1,59 @@
+.registration-form{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.login h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.reg__field{
+    margin: 10px 0;
+}
+
+.reg__field label{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.reg__field input{
+    position: relative;
+    width: 400px;
+    height: 40px;
+    border: 2px solid black;
+    padding-left: 10px;
+}
+
+.registration-form input:focus {
+    outline-color: black;
+}
+
+.registration-form button{
+    font-size: 16px;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background:black;
+    color: white;
+    width: 417px;
+    height: 40px;
+    font-weight: 700;
+    box-shadow: 3px 5px 5px black ;
+    transition: background 0.8s;
+    cursor: pointer;
+    outline: none
+}
+  
+#btn:hover{
+    transition: background 0.8s;
+    transition: border 0.2s;
+    color: black;
+    box-shadow: 3px 5px 5px black  ;
+    background:white;
+    border-color: black ;
+}

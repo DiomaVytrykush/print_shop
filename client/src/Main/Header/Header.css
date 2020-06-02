@@ -1,0 +1,20 @@
+.Header{
+    height: 90vh;
+    background: url(img/Header.jpg) no-repeat center center fixed;
+    overflow: hidden;
+}
+
+.Header h1{
+    letter-spacing: 4px;
+    font-weight: 100;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 250px;
+    height: 200px;
+    background-color: darkgrey;
+    width: 100%;
+    font-size: 60px;
+    color: white;
+    text-transform: uppercase;
+}

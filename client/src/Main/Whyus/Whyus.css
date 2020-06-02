@@ -1,0 +1,33 @@
+.Whyus{
+    background-color: #e6e6e9;
+}
+
+.Whyus h1{
+    padding-top: 50px;
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+}
+
+.Whyus__boxes{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.Whyus__box {
+    max-width: 300px;
+    margin: 20px;
+}
+
+.Whyus__description span{
+    font-weight: 700;
+}
+
+.Whyus__img img{
+    width: 100px;
+    height: 100px;
+}

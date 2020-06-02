@@ -1,0 +1,84 @@
+.Reviews{
+    max-width: 1400px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.Reviews h1{
+    margin: 60px 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+}
+
+.Reviews__box {
+    max-width: 900px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.Reviews__box__profile {
+    display: flex;
+    align-items: center;
+}
+
+.Reviews__box__avatar{
+    margin: 20px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.Add__Review textarea{
+    border: none;
+    border-bottom: 2px solid black;
+    resize: none;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+}
+
+.Add__Review__Button{
+    font-size: 16px;
+    margin: 20px 0;
+    padding: 4px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: black;
+    color: white;
+    width: 20%;
+    font-weight: 700;
+    box-shadow: 2px 2px 2px black;
+    transition: background 0.8s;
+    cursor: pointer;
+    outline: none;
+}
+  
+.Add__Review__Button:hover{
+    transition: background 0.8s;
+    transition: border 0.2s;
+    color: black;
+    background:white;
+    border-color: black ;
+}
+
+.Reviews__box__description{
+    min-width: 100px;
+    max-width: 500px;
+}
+
+.Reviews__box__like{
+    display: flex;
+    justify-content: space-around;
+    max-width: 80px;
+}
+
+.Reviews__box__like img{
+    cursor: pointer;
+}
+
+.Review__delete {
+    cursor: pointer;
+}
+

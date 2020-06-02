@@ -1,0 +1,51 @@
+.choices__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.choices__wrapper img{
+    width: 300px;
+    height: auto;
+}
+
+.choices__box{
+    margin: 20px;
+}
+
+.choices__cost {
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.choices__btn{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 4px;
+    border: 2px solid black;
+    background:black;
+    color: white;
+    width: 100%;
+    font-weight: 700;
+    box-shadow: 2px 2px 2px black ;
+    transition: background 0.8s;
+    cursor: pointer;
+    outline: none
+}
+  
+.choices__btn:hover{
+    transition: background 0.8s;
+    transition: border 0.2s;
+    color: black;
+    background:white;
+    border-color: black ;
+}
+
+.choices__btn:disabled{
+    color: black;
+    background:white;
+    border-color: black ;
+}

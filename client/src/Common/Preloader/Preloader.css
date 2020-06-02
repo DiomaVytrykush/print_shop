@@ -1,0 +1,15 @@
+.Preloader {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.Preloader__wrapper {
+    display: flex;
+}
+
+.Preloader__wrapper img {
+    height: 50px;
+    width: auto;
+}

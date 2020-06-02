@@ -1,0 +1,151 @@
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.basket__wrapper {
+    padding: 20px;
+}
+
+.basket {
+    font-size: 34px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 50px;
+    padding: 0;
+    text-align: center;
+}
+
+.buyer__order{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.buyer__order input{
+    border: none;
+    outline: none;
+    width: 356px;
+}
+
+.buyer__order input {
+    border-bottom: 1px solid black ;
+}
+
+.buyer__order input::placeholder {
+    padding-left: 5px;
+    font-size: 17px;
+    color:black
+}
+
+.buyer__order .form__control {
+    padding-bottom: 15px;
+}
+
+.basket__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 30px 0;
+    padding: 20px;
+    border-bottom: 1px solid #b3b3b3;
+    border-top: 1px solid #b3b3b3;
+}
+
+.buyer__location select {
+    font-size: 17px;
+    margin-bottom: 10px;
+    width: 360px;
+    height: 25px;
+    border: solid 2px white;
+    border-bottom: 1px solid black;
+}
+
+.buyer__location h2, .buyer__name__number h2 {
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 35px;
+}
+
+
+.buyer__file input {
+    border-bottom: none ;
+}
+
+.basket__wrapper h1 {
+    margin: 50px 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+.total__order {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999;
+    padding: 30px;
+    background-color: #f9f9f9
+}
+
+.buyer__submit {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    margin: 20px auto;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 20px 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    width: 300px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+}
+
+.empty__basket {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basket__count {
+    font-weight: 600;
+    margin: 0 4px;
+}
+
+.basket__button {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    font-size: 18px;
+    outline: none;
+}   
+
+.basket__name ,
+.basket__cost,
+.total__order__price{
+    font-weight: 600;
+}
+
+.total__order__price{
+    color: black;
+    margin: 0 0 10p;
+    margin: 10px 0 0;
+    font-size: 20px;
+}
+
+.basket__photo img {
+    height: auto;
+    max-width: 80px;
+}
