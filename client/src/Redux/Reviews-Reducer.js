@@ -8,8 +8,8 @@ const ADD_LIKE_TO_REVIEW = 'ADD_LIKE_TO_REVIEW'
 let initialState = {
     reviews: [
         { id: 1, img: Anonim, text: "Hello how are you ?", like: thumb, likecount: 1 },
-        { id: 2, img: Anonim, text: "Okay, how about you ?", like: thumb, likecount: 2 },
-        { id: 3, img: Anonim, text: "Okay, how about you ?", like: thumb, likecount: 3 },
+        { id: 2, img: Anonim, text: "Nice, how about you ?", like: thumb, likecount: 2 },
+        { id: 2, img: Anonim, text: "One more try", like: thumb, likecount: 0 },
     ],
     newReviewsId: 4,
     addedLikes: []
@@ -56,3 +56,5 @@ export const deleteReview = (reviewId) => ({ type: DELETE_REVIEW, reviewId })
 export const addLikeToReview = (likeId) => ({ type: ADD_LIKE_TO_REVIEW, likeId })
 
 export default reviewReducer
+
+

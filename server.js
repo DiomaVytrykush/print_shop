@@ -26,9 +26,17 @@ app.post('/api/world', (req, res) => {
     Місто відправника :  ${req.body.postCity}
     Область відправника :  ${req.body.postCityArea}
     Відділення нової пошти :  ${req.body.postNumber}
-    Файл : ${req.body.file}
-    `);
-});
+  `)
+  bot.sendPhoto(chatId,
+    `Файл : ${req.body.file}`
+  );
+  api.sendPhoto({
+    chat_id: chatId,
+    caption: `${req.body.file}`,
+  
+    photo: 'AgADBAADZbo1G14XZAfdtXnWB5anFpRbYRkABMRWzQmdc4EQbPcCAAEC'
+  })
+})
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

@@ -6,9 +6,9 @@ import Preloader from '../Common/Preloader/Preloader';
 
 let Choices = (props) => {
 
-    // if (!props.products) {
-    //     return <Preloader />
-    // }
+    if (!props.products) {
+        return <Preloader />
+    }
 
     return (
         <div className="choices__wrapper">
@@ -35,3 +35,5 @@ let Choices = (props) => {
 }
 
 export default Choices
+
+

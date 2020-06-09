@@ -15,8 +15,14 @@
     margin: 20px;
 }
 
+.choices__name {
+    margin: -37px 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+
 .choices__cost {
-    margin-top: 10px;
+    margin-top: 40px;
     font-weight: 700;
 }
 

@@ -11,7 +11,6 @@ function Navbar({isAuth, login, logout, itemsInCard}) {
         <div className="Navbar">
             <NavLink to='/shop'>Магазин</NavLink>
             <NavLink to='/reviews'>Відгуки</NavLink>
-            <NavLink to='/aboutus'>Про нас</NavLink>
             <NavLink to='/basket'>
                 <div className="Navbar__img">
                     <img src={Store} alt="" />

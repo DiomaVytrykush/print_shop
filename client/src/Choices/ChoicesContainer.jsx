@@ -6,6 +6,7 @@ import Preloader from './../Common/Preloader/Preloader';
 import { getProducts, getIsFetching, getFolowingInProgress} from './../Redux/Choices-Selectors';
 import { useEffect } from 'react';
 
+
 const ChoicesContainer = (props) => {
 
     useEffect(() => {
@@ -33,3 +34,4 @@ let mapStateToProps = (state) => {
 }
 // CONNECT - HOC , WHICH TAKE ONE COMPONTNT AND RETURN OTHER COMPONENT
 export default connect(mapStateToProps, { getProductsFromAPI,addItemToCard, toggleFollowingProgress})(ChoicesContainer)
+

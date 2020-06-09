@@ -19,6 +19,7 @@
 }
 
 .Navbar a:hover{
+    color: white;
     border-bottom: 1px solid rgb(148, 148, 148);
     transition: border 0.1s;
 }
@@ -54,3 +55,9 @@
     border-radius: 50%;
     color: black;
 }
+
+@media screen and (max-width: 520px) {
+    .Navbar {
+        padding: 0 20px    }
+  }
+

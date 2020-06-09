@@ -2,6 +2,7 @@ import React from 'react';
 import './Basket.css';
 import Backspace from './../Reviews/img/backspace.svg'
 import ImgGlass from './../Main/Choices/img/glass.jpg';
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody } from 'mdbreact';
 
 // function Basket(props) {
 class Basket extends React.Component {
@@ -16,8 +17,16 @@ class Basket extends React.Component {
         postCity: '',
         postCityArea: '',
         postNumber: '',
-        file: ''
+        file: '',
+        modal11: false
+
     };
+    toggle = nr => () => {
+        let modalNumber = 'modal' + nr
+        this.setState({
+            [modalNumber]: !this.state[modalNumber]
+        });
+    }
     componentDidMount() {
         this.callApi()
             .then(res => this.setState({ response: res.express }))
@@ -82,13 +91,13 @@ class Basket extends React.Component {
                                     </div>
                                     <div className="basket__cost">{p.gsx$cost.$t} грн</div>
                                     <div>
-                                        <button type = 'button' className="basket__button" onClick={() => {
+                                        <button type='button' className="basket__button" onClick={() => {
                                             if (p.gsx$count.$t > 1) {
                                                 this.props.minusAmount(p.gsx$id.$t)
                                             }
                                         }}>-</button>
                                         <span className="basket__count">{p.gsx$count.$t}</span>
-                                        <button type = 'button' className="basket__button" onClick={() => {
+                                        <button type='button' className="basket__button" onClick={() => {
                                             this.props.plusAmount(p.gsx$id.$t)
                                         }}>+</button>
                                     </div>
@@ -111,9 +120,8 @@ class Basket extends React.Component {
                                             onChange={e => this.setState({ name: e.target.value })}
                                             name="firstName"
                                             placeholder="Введіть ПІБ"
-                                            // validate={required}
-                                            // component={Input}
-                                            type="text" />
+                                            type="text"
+                                            required />
                                     </div>
                                     <div>
                                         <input
@@ -121,9 +129,8 @@ class Basket extends React.Component {
                                             onChange={e => this.setState({ phone: e.target.value })}
                                             name="phoneNumber"
                                             placeholder="Введіть номер телефону"
-                                            // validate={[required, maxLength13, minLength5]}
-                                            // component={Input}
                                             type="number"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -131,7 +138,7 @@ class Basket extends React.Component {
                                     <h2>Доставка</h2>
                                     <div>
                                         <select name="postCityArea"
-                                            // component="select"
+                                            required
                                             value={this.state.postCityArea}
                                             onChange={e => this.setState({ postCityArea: e.target.value })}> >
                                             <option>Виберіть область</option>
@@ -144,7 +151,7 @@ class Basket extends React.Component {
                                     </div>
                                     <div>
                                         <select name="postCity"
-                                            // component="select"
+                                            required
                                             value={this.state.postCity}
                                             onChange={e => this.setState({ postCity: e.target.value })}>
                                             <option>Виберіть місто</option>
@@ -158,8 +165,7 @@ class Basket extends React.Component {
                                     <div>
                                         <input name="postNumber"
                                             placeholder="Введіть номер відділенння"
-                                            // validate={required}
-                                            // component={Input}
+                                            required
                                             type="text"
                                             value={this.state.postNumber}
                                             onChange={e => this.setState({ postNumber: e.target.value })} />
@@ -170,12 +176,19 @@ class Basket extends React.Component {
                                         type="file"
                                         value={this.state.file}
                                         onChange={e => this.setState({ file: e.target.value })}
-                                    // component={customFileInput} 
                                     />
                                 </div>
                             </div>
                         </div>
-                        <button className="buyer__submit" type="submit">Оформити заказ</button>
+                        <button onClick={this.toggle(11)} className="buyer__submit" type="submit">Оформити заказ</button>
+                        <MDBContainer>
+                            <MDBModal isOpen={this.state.modal11} toggle={this.toggle(11)} frame position="top">
+                                <MDBModalBody className="text-center">
+                                    <p>Ваш заказ оформленно , чекайте дзвінка.</p>
+                                    <MDBBtn type='button' className="buyer__submit" type="submit" color="dark" onClick={this.toggle(11)}>Закрити</MDBBtn>
+                                </MDBModalBody>
+                            </MDBModal>
+                        </MDBContainer>
                     </form>
                 </div >
             </div>

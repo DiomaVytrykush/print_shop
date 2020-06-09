@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import { deleteItemFromCard, plusAmount, minusAmount, getpostDataCityFromAPI, getpostDataAreaFromAPI, toggleFollowingProgress }
     from './../Redux/Choices-Reducer'
 import { useEffect } from 'react';
+import EmptyBasket from './img/emptybasket.svg'
 
 
 const BasketContainer = (props) => {
@@ -18,7 +19,7 @@ const BasketContainer = (props) => {
     return (
         props.itemsInCard != 0
             ? <Basket {...props} />
-            : <Route path='*' render={() => <div className="empty__basket"><h2>КОРЗИНА ПУСТА</h2></div>} />
+            : <Route path='*' render={() => <div className="empty__basket"><h2>КОРЗИНА ПУСТА</h2><img src={EmptyBasket} /></div>} />
     )
 }
 

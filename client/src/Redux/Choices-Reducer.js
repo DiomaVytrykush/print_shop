@@ -104,6 +104,7 @@ export const deleteItemFromCard = (itemId) => ({ type: DELETE_ITEM_FROM_CARD, it
 export const plusAmount = (itemId) => ({ type: PLUS__AMOUNT, itemId })
 export const minusAmount = (itemId) => ({ type: MINUS__AMOUNT, itemId })
 
+
 // THUNK - FUNCTION WHICH TAKE METHOD DISPATCH AND DO SOME ASYNC OPERATIONS AND DISPATCHES
 export const getProductsFromAPI = () => async (dispatch) => {
 
@@ -152,7 +153,5 @@ export const getpostDataAreaFromAPI = () => async (dispatch) => {
         alert(error.message)
     }
 }
-
-
 
 export default ChoicesReducer;  

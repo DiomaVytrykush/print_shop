@@ -115,8 +115,14 @@ input::-webkit-inner-spin-button {
 .empty__basket {
     height: 90vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.empty__basket img{
+    width: 200px;
+    height: auto;
 }
 
 .basket__count {
