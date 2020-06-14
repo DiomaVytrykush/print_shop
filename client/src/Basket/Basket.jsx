@@ -180,12 +180,13 @@ class Basket extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <button onClick={this.toggle(11)} className="buyer__submit" type="submit">Оформити заказ</button>
+                        <button onClick={this.toggle(11)} 
+                            className="buyer__submit" type="submit">Оформити замовлення</button>
                         <MDBContainer>
                             <MDBModal isOpen={this.state.modal11} toggle={this.toggle(11)} frame position="top">
                                 <MDBModalBody className="text-center">
-                                    <p>Ваш заказ оформленно , чекайте дзвінка.</p>
-                                    <MDBBtn type='button' className="buyer__submit" type="submit" color="dark" onClick={this.toggle(11)}>Закрити</MDBBtn>
+                                    <p>Ваше замовлення оформленно , чекайте дзвінка.</p>
+                                    <MDBBtn type='button' className="buyer__submit" color="dark" onClick={this.toggle(11)}>Закрити</MDBBtn>
                                 </MDBModalBody>
                             </MDBModal>
                         </MDBContainer>

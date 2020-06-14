@@ -155,3 +155,13 @@ input::-webkit-inner-spin-button {
     height: auto;
     max-width: 80px;
 }
+
+.buyer__name__number {
+    padding-bottom: 30px;
+}
+
+@media screen and (max-width: 450px) {
+    .basket__photo img {
+    display: none;    
+    }
+  }

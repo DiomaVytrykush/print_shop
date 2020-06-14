@@ -19,7 +19,7 @@ const BasketContainer = (props) => {
     return (
         props.itemsInCard != 0
             ? <Basket {...props} />
-            : <Route path='*' render={() => <div className="empty__basket"><h2>КОРЗИНА ПУСТА</h2><img src={EmptyBasket} /></div>} />
+            : <Route path='*' render={() => <div className="empty__basket"><h2>КОРЗИНА ПОРОЖНЯ</h2><img src={EmptyBasket} /></div>} />
     )
 }
 
