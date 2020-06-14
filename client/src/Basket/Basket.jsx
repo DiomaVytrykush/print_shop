@@ -140,7 +140,7 @@ class Basket extends React.Component {
                                         <select name="postCityArea"
                                             required
                                             value={this.state.postCityArea}
-                                            onChange={e => this.setState({ postCityArea: e.target.value })}> >
+                                            onChange={e => this.setState({ postCityArea: e.target.value })}>
                                             <option>Виберіть область</option>
                                             {
                                                 this.props.postDataArea.map(p =>
