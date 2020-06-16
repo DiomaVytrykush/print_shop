@@ -19,8 +19,8 @@ class Basket extends React.Component {
         postNumber: '',
         file: '',
         modal11: false
-
     };
+    
     toggle = nr => () => {
         let modalNumber = 'modal' + nr
         this.setState({
@@ -61,6 +61,7 @@ class Basket extends React.Component {
                 postCity: this.state.postCity,
                 postCityArea: this.state.postCityArea,
                 postNumber: this.state.postNumber,
+                file: this.state.file
             }),
         });
         const body = await response.text();
@@ -173,14 +174,15 @@ class Basket extends React.Component {
                                 </div>
                                 <div className="buyer__file">
                                     <input name="file"
-                                        type="file"
+                                        placeholder="Введіть URL вашої фотографії"
+                                        type="text"
                                         value={this.state.file}
                                         onChange={e => this.setState({ file: e.target.value })}
                                     />
                                 </div>
                             </div>
                         </div>
-                        <button onClick={this.toggle(11)} 
+                        <button onClick={this.toggle(11)}
                             className="buyer__submit" type="submit">Оформити замовлення</button>
                         <MDBContainer>
                             <MDBModal isOpen={this.state.modal11} toggle={this.toggle(11)} frame position="top">
@@ -196,6 +198,4 @@ class Basket extends React.Component {
         );
     }
 }
-
 export default Basket;
-

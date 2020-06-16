@@ -27,15 +27,7 @@ app.post('/api/world', (req, res) => {
     Область відправника :  ${req.body.postCityArea}
     Відділення нової пошти :  ${req.body.postNumber}
   `)
-  bot.sendPhoto(chatId,
-    `Файл : ${req.body.file}`
-  );
-  api.sendPhoto({
-    chat_id: chatId,
-    caption: `${req.body.file}`,
-  
-    photo: 'AgADBAADZbo1G14XZAfdtXnWB5anFpRbYRkABMRWzQmdc4EQbPcCAAEC'
-  })
+  bot.sendPhoto(chatId, `${req.body.file}` ) 
 })
 
 if (process.env.NODE_ENV === 'production') {

@@ -42,7 +42,7 @@ class App extends React.Component {
             <Route path='/basket' render={() => <BasketContainer />} />
             <Route path='/login' render={() => <LoginContainer />} />
             <Route path='/Reviews' render={() => <ReviewsContainer />} />
-            <Route path='*' render={() => <div>404 NOT FOUND</div>} />
+            <Route path='*' render={() => <div className="notfound">404 NOT FOUND</div>} />
 
           </Switch>
           <Footer />
