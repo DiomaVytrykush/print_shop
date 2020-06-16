@@ -37,6 +37,10 @@ input::-webkit-inner-spin-button {
     border-bottom: 1px solid black ;
 }
 
+.buyer__file input {
+    border-bottom: none ;
+}
+
 .buyer__order input::placeholder {
     padding-left: 5px;
     font-size: 17px;
@@ -72,11 +76,6 @@ input::-webkit-inner-spin-button {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 35px;
-}
-
-
-.buyer__file input {
-    border-bottom: none ;
 }
 
 .basket__wrapper h1 {
