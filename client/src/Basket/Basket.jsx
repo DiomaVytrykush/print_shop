@@ -3,28 +3,23 @@ import './Basket.css';
 import Backspace from './../Reviews/img/backspace.svg'
 import ImgGlass from './../Main/Choices/img/glass.jpg';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody } from 'mdbreact';
-const axios = require("axios");
 
 // function Basket(props) {
 class Basket extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            file: null,
-            response: '',
-            post: '',
-            responseToPost: '',
-            name: '',
-            phone: '',
-            orderName: '',
-            postCity: '',
-            postCityArea: '',
-            postNumber: '',
-            file: '',
-            modal11: false
-        };
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
+
+    state = {
+        response: '',
+        post: '',
+        responseToPost: '',
+        name: '',
+        phone: '',
+        orderName: '',
+        postCity: '',
+        postCityArea: '',
+        postNumber: '',
+        file: '',
+        modal11: false
+
     };
     toggle = nr => () => {
         let modalNumber = 'modal' + nr
@@ -32,19 +27,29 @@ class Basket extends React.Component {
             [modalNumber]: !this.state[modalNumber]
         });
     }
+    componentDidMount() {
+        this.callApi()
+            .then(res => this.setState({ response: res.express }))
+            .catch(err => console.log(err));
+    }
+    callApi = async () => {
+        const response = await fetch('/api/hello');
+        const body = await response.json();
+        if (response.status !== 200) throw Error(body.message);
+        return body;
+    };
     orders = () => {
         return this.props.itemsInCard.map(item => item.gsx$name.$t)
     };
     ordersCount = () => {
         return this.props.itemsInCard.map(item => item.gsx$count.$t)
     }
-    onFormSubmit = async e => {
+    handleSubmit = async e => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('myImage', this.state.file);
-        const config = {
+        const response = await fetch('/api/world', {
+            method: 'POST',
             headers: {
-                'content-type': 'multipart/form-data'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 post: this.state.post,
@@ -57,12 +62,11 @@ class Basket extends React.Component {
                 postCityArea: this.state.postCityArea,
                 postNumber: this.state.postNumber,
             }),
-        };
-        axios.post("/api/world", formData, config)
-            .then((response) => {
-            }).catch((error) => {
-            });
+        });
+        const body = await response.text();
+        this.setState({ responseToPost: body });
     };
+
     getPrice = () => {
         let price = 0;
         this.props.itemsInCard.forEach((item) => {
@@ -70,15 +74,12 @@ class Basket extends React.Component {
         })
         return price
     }
-    onChange(e) {
-        this.setState({ file: e.target.files[0] });
-    }
     render() {
         return (
-            <div onSubmit={this.onFormSubmit}>
+            <div onSubmit={this.handleSubmit}>
                 <div className="basket__wrapper" >
                     <div className="basket">Корзина</div>
-                    <form encType="multipart/form-data">
+                    <form>
                         {
                             this.props.itemsInCard.map(p => <div key={p.gsx$id.$t} id={p.gsx$id.$t} >
                                 <div className="basket__box">
@@ -171,16 +172,16 @@ class Basket extends React.Component {
                                     </div>
                                 </div>
                                 <div className="buyer__file">
-                                    <input name="myImage"
+                                    <input name="file"
                                         type="file"
-                                        accept="image/*"
-                                        onChange={this.onChange}
+                                        value={this.state.file}
+                                        onChange={e => this.setState({ file: e.target.value })}
                                     />
                                 </div>
                             </div>
                         </div>
-                        <button onClick={this.toggle(11)}
-                            className="buyer__submit" type="submit" value="upload">Оформити замовлення</button>
+                        <button onClick={this.toggle(11)} 
+                            className="buyer__submit" type="submit">Оформити замовлення</button>
                         <MDBContainer>
                             <MDBModal isOpen={this.state.modal11} toggle={this.toggle(11)} frame position="top">
                                 <MDBModalBody className="text-center">
@@ -195,6 +196,4 @@ class Basket extends React.Component {
         );
     }
 }
-
 export default Basket;
-
