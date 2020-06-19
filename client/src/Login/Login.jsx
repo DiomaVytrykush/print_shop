@@ -2,7 +2,7 @@ import React from 'react';
 import './Login.css';
 import { Field, reduxForm } from 'redux-form';
 import { Input } from './../Common/FormsControls/FormsControls';
-import { required,maxLength50, minLength5 } from './../Helpers/Validators/Validators';
+import { required, maxLength50, minLength5 } from './../Helpers/Validators/Validators';
 import { Redirect } from "react-router-dom";
 
 const LoginForm = ({handleSubmit}) => {
@@ -43,7 +43,6 @@ const Login = ({login,isAuth }) => {
         login(formData.email, formData.password)
         console.log(formData)
     }
-
 
     if (isAuth) {
         return <Redirect to={'/shop'} />

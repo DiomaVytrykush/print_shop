@@ -110,7 +110,7 @@ class Basket extends React.Component {
                             </div>)
                         }
                         <div className="total__order">Сума до оплати за товар : <div className="total__order__price">{this.getPrice()}грн</div></div>
-                        <h1>Оформлення заказу</h1>
+                        <h1>Оформлення замовлення</h1>
                         <div className="Order__wrapper">
                             <div className="buyer__order">
                                 <div className="buyer__name__number">
