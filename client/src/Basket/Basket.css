@@ -155,6 +155,10 @@ input::-webkit-inner-spin-button {
     padding-bottom: 30px;
 }
 
+.basket__backspace {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 450px) {
     .basket__photo img {
     display: none;    

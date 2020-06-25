@@ -1,4 +1,4 @@
-import { productsAPI } from './../Api/Api';
+import { productsAPI } from '../Api/Api';
 
 const SET_PRODUCTS = 'SET_PRODUCTS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
@@ -12,18 +12,20 @@ const SET_POST_DATA_CITY = 'SET_POST_DATA_CITY';
 const SET_POST_DATA_AREA = 'SET_POST_DATA__DEPARTMENT_AREA';
 
 let initialState = {
-    products: [],
-    item: [],
-    postDataCity: [],
-    postDataArea: [],
-    isFetching: false,
-    itemsInCard: [],
-    folowingInProgress: [],
+    products: [] as Array<any>,
+    item: [] as Array<any>,
+    postDataCity: [] as Array<any>,
+    postDataArea: [] as Array<any>,
+    isFetching: false as boolean,
+    itemsInCard: [] as Array<any>,
+    folowingInProgress: [] as Array<number>, //Array of items ids
 }
+
+type initialStateType = typeof initialState
 
 // Reducer - function through which state will modificate
 
-const ChoicesReducer = (state = initialState, action) => {
+const ChoicesReducer = (state = initialState, action: any): initialStateType => {
 
     switch (action.type) {
 
@@ -93,20 +95,60 @@ const ChoicesReducer = (state = initialState, action) => {
             return state
     }
 }
-export const setProducts = (products) => ({ type: SET_PRODUCTS, products })
-export const setItem = (item) => ({ type: SET_ITEM, item })
-export const setPostDataCity = (data) => ({ type: SET_POST_DATA_CITY, data })
-export const setpostDataArea = (data) => ({ type: SET_POST_DATA_AREA, data })
-export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
-export const toggleFollowingProgress = (isFetching, itemId) => ({ type: TOGGLE_IS_FOLLOWING__PROGRESS, isFetching, itemId })
-export const addItemToCard = (item) => ({ type: ADD_ITEM_TO_CARD, item })
-export const deleteItemFromCard = (itemId) => ({ type: DELETE_ITEM_FROM_CARD, itemId })
-export const plusAmount = (itemId) => ({ type: PLUS__AMOUNT, itemId })
-export const minusAmount = (itemId) => ({ type: MINUS__AMOUNT, itemId })
-
+export const setProducts = (products: Array<any>): setProductsActionType => ({ type: SET_PRODUCTS, products })
+type setProductsActionType = {
+    type: typeof SET_PRODUCTS
+    products: Array<any>
+}
+export const setItem = (item: Array<any>): setItemActionType => ({ type: SET_ITEM, item })
+type setItemActionType = {
+    type: typeof SET_ITEM
+    item: Array<any>
+}
+export const setPostDataCity = (data: Array<any>): setPostDataCityActionType => ({ type: SET_POST_DATA_CITY, data })
+type setPostDataCityActionType = {
+    type: typeof SET_POST_DATA_CITY
+    data: Array<any>
+}
+export const setpostDataArea = (data: Array<any>): setpostDataAreaActionType => ({ type: SET_POST_DATA_AREA, data })
+type setpostDataAreaActionType = {
+    type: typeof SET_POST_DATA_AREA
+    data: Array<any>
+}
+export const toggleIsFetching = (isFetching: boolean): toggleIsFetchingActionType => ({ type: TOGGLE_IS_FETCHING, isFetching })
+type toggleIsFetchingActionType = {
+    type: typeof TOGGLE_IS_FETCHING
+    isFetching: boolean
+}
+export const toggleFollowingProgress = (isFetching: boolean, itemId: number): toggleFollowingProgressActionType => ({ type: TOGGLE_IS_FOLLOWING__PROGRESS, isFetching, itemId })
+type toggleFollowingProgressActionType = {
+    type: typeof TOGGLE_IS_FOLLOWING__PROGRESS
+    isFetching: boolean,
+    itemId: number
+}
+export const addItemToCard = (item: Array<any>): addItemToCardActionType => ({ type: ADD_ITEM_TO_CARD, item })
+type addItemToCardActionType = {
+    type: typeof ADD_ITEM_TO_CARD
+    item: Array<any>
+}
+export const deleteItemFromCard = (itemId: number): deleteItemFromCardActionType => ({ type: DELETE_ITEM_FROM_CARD, itemId })
+type deleteItemFromCardActionType = {
+    type: typeof DELETE_ITEM_FROM_CARD
+    itemId: number
+}
+export const plusAmount = (itemId: number): plusAmountActionType => ({ type: PLUS__AMOUNT, itemId })
+type plusAmountActionType = {
+    type: typeof PLUS__AMOUNT
+    itemId: number
+}
+export const minusAmount = (itemId: number): minusAmountActionType => ({ type: MINUS__AMOUNT, itemId })
+type minusAmountActionType = {
+    type: typeof MINUS__AMOUNT
+    itemId: number
+}
 
 // THUNK - FUNCTION WHICH TAKE METHOD DISPATCH AND DO SOME ASYNC OPERATIONS AND DISPATCHES
-export const getProductsFromAPI = () => async (dispatch) => {
+export const getProductsFromAPI = () => async (dispatch: any) => {
 
     dispatch(toggleIsFetching(true))
 
@@ -115,7 +157,7 @@ export const getProductsFromAPI = () => async (dispatch) => {
     dispatch(setProducts(entry))
 }
 
-export const getItemsFromAPI = () => async (dispatch) => {
+export const getItemsFromAPI = () => async (dispatch: any) => {
     try {
         dispatch(toggleIsFetching(true))
 
@@ -128,7 +170,7 @@ export const getItemsFromAPI = () => async (dispatch) => {
     }
 }
 
-export const getpostDataCityFromAPI = () => async (dispatch) => {
+export const getpostDataCityFromAPI = () => async (dispatch: any) => {
     try {
         dispatch(toggleIsFetching(true))
 
@@ -141,7 +183,7 @@ export const getpostDataCityFromAPI = () => async (dispatch) => {
     }
 }
 
-export const getpostDataAreaFromAPI = () => async (dispatch) => {
+export const getpostDataAreaFromAPI = () => async (dispatch: any) => {
     try {
         dispatch(toggleIsFetching(true))
 

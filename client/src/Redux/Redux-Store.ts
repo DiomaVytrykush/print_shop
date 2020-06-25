@@ -14,9 +14,14 @@ let reducers = combineReducers({
     form: formReducer,
 });
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware(ThunkMiddleware)));
+type reducersType = typeof reducers
+export type AppStateType = ReturnType<reducersType>
 
+//@ts-ignore
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(reducers, composeEnhancers(applyMiddleware(ThunkMiddleware)))
+//@ts-ignore
 window.__store__ = store
 
 export default store

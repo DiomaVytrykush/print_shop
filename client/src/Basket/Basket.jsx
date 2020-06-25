@@ -102,7 +102,7 @@ class Basket extends React.Component {
                                             this.props.plusAmount(p.gsx$id.$t)
                                         }}>+</button>
                                     </div>
-                                    <img src={Backspace} alt="a" onClick={() => {
+                                    <img className="basket__backspace"  src={Backspace} alt="a" onClick={() => {
                                         this.props.toggleFollowingProgress(false, p.gsx$id.$t)
                                         this.props.deleteItemFromCard(p.id)
                                     }} />

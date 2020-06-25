@@ -5,17 +5,28 @@ const ADD_REVIEW_TEXT = 'ADD-REVIEW-TEXT';
 const DELETE_REVIEW = 'DELETE_REVIEW';
 const ADD_LIKE_TO_REVIEW = 'ADD_LIKE_TO_REVIEW'
 
+export type reviewsType = {
+    id: number,
+    img: string
+    text: string
+    like: string
+    likecount: number
+}
+
 let initialState = {
     reviews: [
         { id: 1, img: Anonim, text: "Hello how are you ?", like: thumb, likecount: 1 },
         { id: 2, img: Anonim, text: "Nice, how about you ?", like: thumb, likecount: 2 },
-        { id: 2, img: Anonim, text: "One more try", like: thumb, likecount: 0 },
-    ],
-    newReviewsId: 4,
-    addedLikes: []
+        { id: 3, img: Anonim, text: "One more try", like: thumb, likecount: 0 },
+    ] as Array<reviewsType>,
+    newReviewsId: 4 as number,
+    addedLikes: [] as Array<number>,
+    // NewReviewsText: string as string
 }
 
-const reviewReducer = (state = initialState, action) => {
+export type initialStateType = typeof initialState
+
+const reviewReducer = (state = initialState, action: any): initialStateType => {
 
     switch (action.type) {
         case ADD_REVIEW_TEXT:
@@ -51,9 +62,21 @@ const reviewReducer = (state = initialState, action) => {
     }
 }
 
-export const addReviewActionCreator = (newReview) => ({ type: ADD_REVIEW_TEXT, newReview })
-export const deleteReview = (reviewId) => ({ type: DELETE_REVIEW, reviewId })
-export const addLikeToReview = (likeId) => ({ type: ADD_LIKE_TO_REVIEW, likeId })
+export const addReviewActionCreator = (newReview: string): addReviewActionCreatorActionType => ({ type: ADD_REVIEW_TEXT, newReview })
+type addReviewActionCreatorActionType = {
+    type: typeof ADD_REVIEW_TEXT
+    newReview: string
+}
+export const deleteReview = (reviewId: number): deleteReviewActiontype => ({ type: DELETE_REVIEW, reviewId })
+type deleteReviewActiontype = {
+    type: typeof DELETE_REVIEW
+    reviewId: number
+}
+export const addLikeToReview = (likeId: number): addLikeToReviewActiontype => ({ type: ADD_LIKE_TO_REVIEW, likeId })
+type addLikeToReviewActiontype = {
+    type: typeof ADD_LIKE_TO_REVIEW
+    likeId: number
+}
 
 export default reviewReducer
 
