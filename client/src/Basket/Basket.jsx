@@ -102,7 +102,7 @@ class Basket extends React.Component {
                                             this.props.plusAmount(p.gsx$id.$t)
                                         }}>+</button>
                                     </div>
-                                    <img src={Backspace} alt="a" onClick={() => {
+                                    <img className="basket__backspace"  src={Backspace} alt="a" onClick={() => {
                                         this.props.toggleFollowingProgress(false, p.gsx$id.$t)
                                         this.props.deleteItemFromCard(p.id)
                                     }} />
@@ -110,7 +110,7 @@ class Basket extends React.Component {
                             </div>)
                         }
                         <div className="total__order">Сума до оплати за товар : <div className="total__order__price">{this.getPrice()}грн</div></div>
-                        <h1>Оформлення заказу</h1>
+                        <h1>Оформлення замовлення</h1>
                         <div className="Order__wrapper">
                             <div className="buyer__order">
                                 <div className="buyer__name__number">

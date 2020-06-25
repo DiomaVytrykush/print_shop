@@ -1,19 +1,20 @@
-import { productsAPI } from './../Api/Api'
 import { stopSubmit } from 'redux-form';
+import { productsAPI } from '../Api/Api';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
 let initialState = {
-    id: null,
-    login: null,
-    email: null,
-    isAuth: false,
-    isFetching: false
+    id: null as  number | null,
+    login: null as string | null,
+    email: null as string | null,
+    isAuth: false as boolean,
+    isFetching: false as boolean
 }
 
+export type initialStateType = typeof initialState
 // Reducer - function through which state will modificate
 
-const AuthReducer = (state = initialState, action) => {
+const AuthReducer = (state = initialState, action: any): initialStateType => {
 
     switch (action.type) {
         case SET_USER_DATA:
@@ -26,8 +27,23 @@ const AuthReducer = (state = initialState, action) => {
             return state
     }
 }
-export const setAuthUserData = (id, login, email, isAuth) => ({ type: SET_USER_DATA, payload: { id, login, email, isAuth } })
-export const getProfile = () => async (dispatch) => {
+
+type setAuthUserDataActionPayloadType = {
+    id: number | null
+    login: string | null
+    email: string | null
+    isAuth: boolean
+}
+type setAuthUserDataActionType = {
+    type: typeof SET_USER_DATA,
+    payload: setAuthUserDataActionPayloadType
+}
+
+export const setAuthUserData = (id: number | null, login: string | null, email: string | null, isAuth: boolean): setAuthUserDataActionType => ({
+    type: SET_USER_DATA, payload: { id, login, email, isAuth }
+})
+
+export const getProfile = () => async (dispatch: any) => {
 
     let response = await productsAPI.getProfile()
 
@@ -37,7 +53,7 @@ export const getProfile = () => async (dispatch) => {
     }
 }
 
-export const login = (email, password, rememberMe) => async (dispatch) => {
+export const login = (email: string, password: string, rememberMe: boolean) => async (dispatch: any) => {
 
     let response = await productsAPI.login(email, password, rememberMe)
 
@@ -51,10 +67,10 @@ export const login = (email, password, rememberMe) => async (dispatch) => {
     }
 }
 
-export const logout = () => async (dispatch) => {
+export const logout = () => async (dispatch: any) => {
 
     let response = await productsAPI.logout()
-    
+
     if (response.data.resultCode === 0) {
         dispatch(setAuthUserData(null, null, null, false))
     }

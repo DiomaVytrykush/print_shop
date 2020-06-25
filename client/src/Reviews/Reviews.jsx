@@ -1,8 +1,8 @@
 import React from 'react';
 import './Reviews.css';
 import { Field, reduxForm } from 'redux-form';
-import { Textarea } from './../Common/FormsControls/FormsControls';
-import { maxLength50 } from './../Helpers/Validators/Validators';
+import { Textarea } from '../Common/FormsControls/FormsControls';
+import { maxLength50 } from '../Helpers/Validators/Validators';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody } from 'mdbreact';
 
 const ReviewsForm = (props) => {

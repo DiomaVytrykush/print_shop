@@ -3,7 +3,7 @@ import './Navbar.css';
 import { NavLink } from 'react-router-dom';
 import Store from './img/store.png';
 
-function Navbar({isAuth, login, logout, itemsInCard}) {
+function Navbar(props) {
 
     return (
 
@@ -14,13 +14,13 @@ function Navbar({isAuth, login, logout, itemsInCard}) {
             <NavLink to='/basket'>
                 <div className="Navbar__img">
                     <img src={Store} alt="" />
-                    <div className="Navbar__count">{itemsInCard.length}</div>
+                    <div className="Navbar__count">{props.itemsInCard.length}</div>
                 </div>
             </NavLink>
             <NavLink to={'/login'}>
                 <div className="login__box">
-                    {isAuth
-                        ? <div>{login} <div onClick ={logout}>LOGOUT</div></div>
+                    {props.isAuth
+                        ? <div>{props.login} <div onClick ={props.logout}>LOGOUT</div></div>
                         : <div>LOGIN</div>}
                 </div>  
             </NavLink>
