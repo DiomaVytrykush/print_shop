@@ -26,7 +26,7 @@ let initialState = {
 
 export type initialStateType = typeof initialState
 
-const reviewReducer = (state = initialState, action: any): initialStateType => {
+const reviewReducer = (state = initialState, action: ActionsTypes): initialStateType => {
 
     switch (action.type) {
         case ADD_REVIEW_TEXT:
@@ -61,6 +61,8 @@ const reviewReducer = (state = initialState, action: any): initialStateType => {
             return state;
     }
 }
+
+type ActionsTypes = addReviewActionCreatorActionType | deleteReviewActiontype | addLikeToReviewActiontype
 
 export const addReviewActionCreator = (newReview: string): addReviewActionCreatorActionType => ({ type: ADD_REVIEW_TEXT, newReview })
 type addReviewActionCreatorActionType = {

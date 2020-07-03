@@ -1,18 +1,18 @@
 import React from 'react';
 import './Login.css';
-import { Field, reduxForm } from 'redux-form';
-import { Input } from './../Common/FormsControls/FormsControls';
-import { required, maxLength50, minLength5 } from './../Helpers/Validators/Validators';
+import { Field, reduxForm, InjectedFormProps } from 'redux-form';
+import { Input } from '../Common/FormsControls/FormsControls';
+import { required, maxLength50, minLength5 } from '../Validators/Validators';
 import { Redirect } from "react-router-dom";
 
-const LoginForm = ({handleSubmit}) => {
+const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType>> = ({ handleSubmit }) => {
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="reg__field">
                 <label htmlFor="email">Електронна пошта:</label>
                 <div>
-                    <Field 
+                    <Field
                         component={Input}
                         validate={[required, maxLength50]}
                         type="email" name="email" id="email" placeholder="new.user@email.com" autoComplete="On" />
@@ -21,7 +21,7 @@ const LoginForm = ({handleSubmit}) => {
             <div className="reg__field">
                 <label htmlFor="password">Пароль:</label>
                 <div>
-                    <Field 
+                    <Field
                         component={Input}
                         validate={[required, minLength5]}
                         type="password" name="password" id="password" required autoComplete="On" />
@@ -35,13 +35,23 @@ const LoginForm = ({handleSubmit}) => {
     )
 }
 
-const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
+const LoginReduxForm = reduxForm<LoginFormValuesType>({ form: 'login' })(LoginForm)
 
-const Login = ({login,isAuth }) => {
+type LoginPropsType = {
+    login: (email: string, password: string, rememberMe: boolean) => void
+    isAuth: boolean
+}
 
-    const onSubmit = formData => {
-        login(formData.email, formData.password)
-        console.log(formData)
+type LoginFormValuesType = {
+    email: string
+    password: string
+    rememberMe: boolean
+}
+
+const Login: React.FC<LoginPropsType> = ({ login, isAuth }) => {
+
+    const onSubmit = (formData: LoginFormValuesType) => {
+        login(formData.email, formData.password, formData.rememberMe)
     }
 
     if (isAuth) {

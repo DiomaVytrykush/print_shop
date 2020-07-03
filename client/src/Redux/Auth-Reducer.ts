@@ -1,10 +1,12 @@
-import { stopSubmit } from 'redux-form';
-import { productsAPI } from '../Api/Api';
+import { stopSubmit, FormErrors, actionTypes } from 'redux-form';
+import { productsAPI, ResultCodesEnum } from '../Api/Api';
+import { ThunkAction } from 'redux-thunk';
+import { AppStateType } from './Redux-Store';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
 let initialState = {
-    id: null as  number | null,
+    id: null as number | null,
     login: null as string | null,
     email: null as string | null,
     isAuth: false as boolean,
@@ -14,7 +16,7 @@ let initialState = {
 export type initialStateType = typeof initialState
 // Reducer - function through which state will modificate
 
-const AuthReducer = (state = initialState, action: any): initialStateType => {
+const AuthReducer = (state = initialState, action: setAuthUserDataActionType): initialStateType => {
 
     switch (action.type) {
         case SET_USER_DATA:
@@ -43,35 +45,38 @@ export const setAuthUserData = (id: number | null, login: string | null, email: 
     type: SET_USER_DATA, payload: { id, login, email, isAuth }
 })
 
-export const getProfile = () => async (dispatch: any) => {
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, setAuthUserDataActionType>
 
-    let response = await productsAPI.getProfile()
+export const getProfile = (): ThunkType => async (dispatch) => {
 
-    if (response.data.resultCode === 0) {
-        let { id, login, email } = response.data.data;
+    let profileData = await productsAPI.getProfile()
+
+    if (profileData.resultCode === ResultCodesEnum.Success) {
+        let { id, login, email } = profileData.data;
         dispatch(setAuthUserData(id, login, email, true))
     }
 }
 
-export const login = (email: string, password: string, rememberMe: boolean) => async (dispatch: any) => {
+export const login = (email: string, password: string, rememberMe: boolean) => async (dispatch:any) => {
 
-    let response = await productsAPI.login(email, password, rememberMe)
-
-    if (response.data.resultCode === 0) {
+    let loginData = await productsAPI.login(email, password, rememberMe)
+    if (loginData.resultCode === ResultCodesEnum.Success) {
         dispatch(getProfile())
     }
     else {
-        dispatch(stopSubmit("login", {
-            password: "Електронна пошта або пароль неправильний"
-        }));
+        if (loginData.resultCode == ResultCodesEnum.Error) {
+            dispatch(stopSubmit("login", {
+                password: "Електронна пошта або пароль неправильний"
+            }))
+        };
     }
 }
 
-export const logout = () => async (dispatch: any) => {
+export const logout = (): ThunkType => async (dispatch) => {
 
     let response = await productsAPI.logout()
 
-    if (response.data.resultCode === 0) {
+    if (response.data.resultCode === ResultCodesEnum.Success) {
         dispatch(setAuthUserData(null, null, null, false))
     }
 }

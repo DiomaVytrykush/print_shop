@@ -1,4 +1,6 @@
+import { AppStateType } from './Redux-Store';
 import { productsAPI } from '../Api/Api';
+import { ThunkAction } from 'redux-thunk';
 
 const SET_PRODUCTS = 'SET_PRODUCTS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
@@ -95,6 +97,11 @@ const ChoicesReducer = (state = initialState, action: any): initialStateType => 
             return state
     }
 }
+type ActionsTypes = setProductsActionType | setItemActionType | setPostDataCityActionType |
+    setpostDataAreaActionType | toggleIsFetchingActionType | toggleFollowingProgressActionType |
+    addItemToCardActionType | deleteItemFromCardActionType | plusAmountActionType | minusAmountActionType
+
+
 export const setProducts = (products: Array<any>): setProductsActionType => ({ type: SET_PRODUCTS, products })
 type setProductsActionType = {
     type: typeof SET_PRODUCTS
@@ -147,9 +154,9 @@ type minusAmountActionType = {
     itemId: number
 }
 
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 // THUNK - FUNCTION WHICH TAKE METHOD DISPATCH AND DO SOME ASYNC OPERATIONS AND DISPATCHES
-export const getProductsFromAPI = () => async (dispatch: any) => {
-
+export const getProductsFromAPI = (): ThunkType => async (dispatch, getState) => {
     dispatch(toggleIsFetching(true))
 
     let entry = await productsAPI.getProducts();
@@ -157,7 +164,7 @@ export const getProductsFromAPI = () => async (dispatch: any) => {
     dispatch(setProducts(entry))
 }
 
-export const getItemsFromAPI = () => async (dispatch: any) => {
+export const getItemsFromAPI = (): ThunkType => async (dispatch) => {
     try {
         dispatch(toggleIsFetching(true))
 
@@ -170,7 +177,7 @@ export const getItemsFromAPI = () => async (dispatch: any) => {
     }
 }
 
-export const getpostDataCityFromAPI = () => async (dispatch: any) => {
+export const getpostDataCityFromAPI = (): ThunkType => async (dispatch) => {
     try {
         dispatch(toggleIsFetching(true))
 
@@ -183,7 +190,7 @@ export const getpostDataCityFromAPI = () => async (dispatch: any) => {
     }
 }
 
-export const getpostDataAreaFromAPI = () => async (dispatch: any) => {
+export const getpostDataAreaFromAPI = (): ThunkType => async (dispatch) => {
     try {
         dispatch(toggleIsFetching(true))
 
