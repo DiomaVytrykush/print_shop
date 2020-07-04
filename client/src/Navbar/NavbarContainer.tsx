@@ -7,6 +7,7 @@ import { AppStateType } from '../Redux/Redux-Store';
 
 type OwnPropsType = {
     getProfile: () => void
+    logout: () => void
 }
 
 type mapStateToPropsType = {

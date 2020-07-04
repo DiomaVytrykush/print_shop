@@ -34,7 +34,6 @@ const ChoicesContainer = (props: propsType) => {
         {props.isFetching ? <Preloader /> : null}
         <Choices
             products={props.products}
-            isFetching={props.isFetching}
             addItemToCard={props.addItemToCard}
             toggleFollowingProgress={props.toggleFollowingProgress}
             folowingInProgress={props.folowingInProgress}

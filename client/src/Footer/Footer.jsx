@@ -1,9 +1,9 @@
 import React from 'react';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalFooter } from 'mdbreact';
 import Iframe from 'react-iframe'
 import './Footer.css';
 import FooterBox from './FooterBox/FooterBox';
-import store from './../Redux/Redux-Store';
+import store from '../Redux/Redux-Store';
 import Facebook from './img/Facebook.png';
 import Instagram from './img/Instagram.png'
 

@@ -24,7 +24,7 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType>> = ({ handleSub
                     <Field
                         component={Input}
                         validate={[required, minLength5]}
-                        type="password" name="password" id="password" required autoComplete="On" />
+                        type="password" name="password" id="password" autoComplete="On" />
                 </div>
             </div>
             <div>

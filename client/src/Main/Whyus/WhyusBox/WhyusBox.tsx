@@ -1,6 +1,12 @@
 import React from 'react';
 
-function WhyusBox(props) {
+type propsType = {
+    img:string
+    text:string
+    description:string
+}
+
+function WhyusBox(props:propsType) {
     return (
         <div className="Whyus__box">
             <div className="Whyus__img">

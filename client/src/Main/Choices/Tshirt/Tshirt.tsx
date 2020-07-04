@@ -1,13 +1,14 @@
 import React from 'react';
-import './Glass.css';
+import './Tshirt.css';
+import { propsType } from '../Glass/Glass';
 
-function Glass(props) {
+function Tshirt(props:propsType) {
     return (
-        <div className="Glass">
-            <div className="Glass__img">
+        <div className="Tshirt">
+            <div className="Tshirt__img">
                 <img src={props.img} />
             </div>
-            <div className="Glass_description">
+            <div className="Tshirt__description">
                 <h2>{props.name}</h2>
                 <p>{props.cost}</p>
                 <button>Придбати</button>
@@ -16,4 +17,4 @@ function Glass(props) {
     );
 }
 
-export default Glass;
+export default Tshirt;
