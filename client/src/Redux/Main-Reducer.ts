@@ -4,7 +4,7 @@ import Alarm from './../Main/Whyus/img/alarm.svg';
 import Transfer from './../Main/Whyus/img/transfer.svg';
 import Tap from './../Footer/img/tap.svg';
 
-type MassiveType = {
+export type MassiveType = {
     id: number
     img: string
     text: string

@@ -3,12 +3,14 @@ import preloader from './cat.gif';
 import "./Preloader.css";
 
 let Preloader = () => {
-    return <div className="Preloader">
-        <div className="Preloader__wrapper">
-            <h2>Loading . . .</h2>
-            <img src={preloader} alt="" />
+    return (
+        <div className="Preloader">
+            <div className="Preloader__wrapper">
+                <h2>Loading . . .</h2>
+                <img src={preloader} alt="" />
+            </div>
         </div>
-    </div >
+    )
 }
 
 export default Preloader

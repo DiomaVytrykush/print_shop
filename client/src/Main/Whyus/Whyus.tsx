@@ -1,8 +1,13 @@
 import React from 'react';
 import './Whyus.css';
 import WhyusBox from './WhyusBox/WhyusBox';
+import { MassiveType } from '../../Redux/Main-Reducer';
 
-function Whyus(props) {
+type propsType = {
+    Whyuses : Array<MassiveType>
+}
+
+function Whyus(props:propsType) {
     
   // Function map helps us to create new massive with few new boxes one by one 
     let WhyusesElements = props.Whyuses.map(whyus => <WhyusBox key={whyus.id} img={whyus.img} text={whyus.text} description={whyus.description} />)

@@ -3,7 +3,7 @@ import Preloader from '../Common/Preloader/Preloader';
 import ImgGlass from '../Main/Choices/img/glass.jpg';
 import './Item.css';
 
-let Item = ({ item }) => {
+let Item = ( item:any ) => {
 
     if (!item) {
         return <Preloader />

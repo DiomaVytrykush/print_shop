@@ -1,4 +1,4 @@
-import { stopSubmit, FormErrors, actionTypes } from 'redux-form';
+import { stopSubmit} from 'redux-form';
 import { productsAPI, ResultCodesEnum } from '../Api/Api';
 import { ThunkAction } from 'redux-thunk';
 import { AppStateType } from './Redux-Store';

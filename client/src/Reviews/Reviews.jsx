@@ -47,8 +47,8 @@ class Reviews extends React.Component {
                 <div className="Add__Review">
                     <ReviewsReduxForm onSubmit={this.addNewReview} />
                 </div>
-                {this.props.reviews.map(r =>
-                    <div className="Reviews__box">
+                {this.props.reviews.map(r => 
+                    <div key={r.id} className="Reviews__box">
                         <div className="Reviews__box__profile">
                             <img className="Reviews__box__avatar" src={r.img} alt="a" />
                             <div className="Reviews__box__description" >

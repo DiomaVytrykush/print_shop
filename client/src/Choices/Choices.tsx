@@ -4,7 +4,14 @@ import ImgGlass from './../Main/Choices/img/glass.jpg';
 import { NavLink } from 'react-router-dom';
 import Preloader from '../Common/Preloader/Preloader';
 
-let Choices = (props) => {
+type propsType = {
+    products: Array<any>
+    folowingInProgress: Array<number>
+    toggleFollowingProgress: (isFetching: boolean, itemId: number) => void
+    addItemToCard: (item: Array<any>) => void
+}
+
+let Choices = (props: propsType) => {
 
     if (!props.products) {
         return <Preloader />
@@ -17,7 +24,7 @@ let Choices = (props) => {
                     <div className="choices__box">
                         <div>
                             <NavLink to={'/item/' + p.gsx$id.$t}>
-                                <img src={p.gsx$img.$t != null ?  p.gsx$img.$t : ImgGlass } alt="" />
+                                <img src={p.gsx$img.$t != null ? p.gsx$img.$t : ImgGlass} alt="" />
                             </NavLink>
                         </div>
                         <div className="choices__name">{p.gsx$name.$t}</div>

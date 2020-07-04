@@ -28,10 +28,3 @@ export const Textarea = ({ input, meta: { error, touched }, ...props }) => {
         </div>
     )
 }
-
-export const customFileInput = ({ input, type, meta: { touched, error, warning } }) => {
-    delete input.value;
-    return <label htmlFor={input.name}>
-        <input {...input} type={type} />
-    </label>;
-};

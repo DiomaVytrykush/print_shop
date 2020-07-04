@@ -3,7 +3,14 @@ import './Navbar.css';
 import { NavLink } from 'react-router-dom';
 import Store from './img/store.png';
 
-function Navbar(props) {
+type propsType = {
+    itemsInCard: Array<any>
+    isAuth: boolean
+    login: null | string
+    logout: () => void
+}
+
+function Navbar(props:propsType) {
 
     return (
 
@@ -20,9 +27,9 @@ function Navbar(props) {
             <NavLink to={'/login'}>
                 <div className="login__box">
                     {props.isAuth
-                        ? <div>{props.login} <div onClick ={props.logout}>LOGOUT</div></div>
+                        ? <div>{props.login} <div onClick={props.logout}>LOGOUT</div></div>
                         : <div>LOGIN</div>}
-                </div>  
+                </div>
             </NavLink>
         </div>
     );

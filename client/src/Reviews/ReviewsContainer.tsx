@@ -18,7 +18,6 @@ type mapDispatchToPropsType = {
 let mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     return {
         reviews: state.reviewsPage.reviews,
-        // NewReviewsText: state.reviewsPage.NewReviewsText,
         isAuth: state.auth.isAuth,
     }
 }
